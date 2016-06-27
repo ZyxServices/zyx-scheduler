@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyx.sheduler.dao.PageViewsDao">
+
+    <update id="updatePageViews" parameterType="pageViews">
+        UPDATE pageviews SET pageviews = pageviews + #{pageviews} WHERE types = #{types} AND typeId = #{typeId}
+    </update>
+
+    <select id="queryPageView" resultType="pageViews">
+        SELECT * FROM pageviews WHERE types=#{types} AND typeId = #{typeId}
+    </select>
+
+    <select id="insertPageView" parameterType="pageViews">
+        INSERT INTO pageviews(pageviews,types,typeId)
+               VALUE (#{pageviews},#{types},#{typeId})
+    </select>
+
+</mapper>

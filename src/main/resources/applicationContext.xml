@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd"
+       default-lazy-init="true"
+       default-autowire="byName">
+
+    <description>SPRING PUBLIC SETTINGS</description>
+
+    <context:property-placeholder ignore-resource-not-found="true"
+                                  location="classpath:mysql.properties,classpath:redis.properties"/>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.zyx.sheduler.*"/>
+
+    <!--<import resource="applicationContext-mvc.xml"/>-->
+
+    <!--<import resource="spring-wxconfig.xml"/>-->
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:mysql.properties"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://120.25.195.67:3306/zyx?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true"/>
+        <property name="username" value="zhanghr"/>
+        <property name="password" value="zhanghr"/>
+        <property name="initialSize" value="60"/>
+        <property name="maxIdle" value="50"/>
+        <property name="minIdle" value="10"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="validationQuery" value="select 1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="20000"/>
+        <property name="numTestsPerEvictionRun" value="100"/>
+    </bean>
+
+    <!-- spring和MyBatis整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:configLocation="classpath:mybatisConfig.xml"
+          p:mapperLocations="classpath:mapping/*.xml"/>
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+          p:basePackage="com.zyx.sheduler.dao"
+          p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
+
+    <bean id="pageViewsDao" class="org.mybatis.spring.mapper.MapperFactoryBean"
+          p:mapperInterface="com.zyx.sheduler.dao.PageViewsDao"/>
+</beans>
