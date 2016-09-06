@@ -39,7 +39,7 @@ public class PageViewsScheduler {
                         String s1 = jc.get(s);
                         jc.set(s, "0");
                         PageViews views = new PageViews();
-                        String[] keys = pageKey.split("_");
+                        String[] keys = s.split("_");
                         views.setTypeId(Integer.valueOf(keys[0]));
                         views.setTypes(Integer.valueOf(keys[1]));
                         views.setPageviews(s1 == null ? 0 : Integer.valueOf(s1));
