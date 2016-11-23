@@ -1,1 +1,1 @@
-java -cp .:./lib/*:./conf com.zyx.scheduler.ZyxShedulerMain
+java -cp .:./lib/*:./conf com.zyx.scheduler.ZyxSchedulerMain
