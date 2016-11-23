@@ -12,7 +12,7 @@
     </bean>
     <bean id="dataPullTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="accessTokenBean"/>
-        <property name="cronExpression" value="*/30 * * * * ?"/>
+        <property name="cronExpression" value="* */2 * * * ?"/>
     </bean>
 
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
