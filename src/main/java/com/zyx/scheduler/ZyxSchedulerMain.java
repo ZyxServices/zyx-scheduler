@@ -1,4 +1,4 @@
-package com.zyx.sheduler;
+package com.zyx.scheduler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +11,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by subdong on 16-1-14.
  */
-@ComponentScan("com.zyx.sheduler.*")
+@ComponentScan("com.zyx.scheduler.*")
 @ImportResource(value = {"zyx-spring.xml"})
 @SpringBootApplication
-public class ZyxShedulerMain extends WebMvcConfigurerAdapter implements EmbeddedServletContainerCustomizer {
+public class ZyxSchedulerMain extends WebMvcConfigurerAdapter implements EmbeddedServletContainerCustomizer {
 
     private static final int PORT = 18100;
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(ZyxShedulerMain.class, args);
+        SpringApplication.run(ZyxSchedulerMain.class, args);
     }
 
     @Override

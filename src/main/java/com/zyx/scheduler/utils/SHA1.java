@@ -1,4 +1,4 @@
-package com.zyx.sheduler.utils;
+package com.zyx.scheduler.utils;
 
 /**
  * Created by subdong on 16-1-20.

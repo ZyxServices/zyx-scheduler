@@ -1,9 +1,9 @@
-package com.zyx.sheduler.quartz;
+package com.zyx.scheduler.quartz;
 
-import com.zyx.sheduler.constants.Constants;
-import com.zyx.sheduler.dao.PageViewsDao;
-import com.zyx.sheduler.entity.PageViews;
-import com.zyx.sheduler.utils.JRedisUtils;
+import com.zyx.scheduler.constants.Constants;
+import com.zyx.scheduler.dao.PageViewsDao;
+import com.zyx.scheduler.entity.PageViews;
+import com.zyx.scheduler.utils.JRedisUtils;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import redis.clients.jedis.Jedis;
  * @version V1.0
  *          Copyright (c)2016 tyj-版权所有
  * @title PageViewsScheduler
- * @package com.zyx.sheduler
+ * @package com.zyx.scheduler
  * @update 16-6-20 下午2:15
  */
 public class PageViewsScheduler {

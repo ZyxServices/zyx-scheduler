@@ -1,6 +1,6 @@
-package com.zyx.sheduler.dao;
+package com.zyx.scheduler.dao;
 
-import com.zyx.sheduler.entity.PageViews;
+import com.zyx.scheduler.entity.PageViews;
 
 /**
  * Created by SubDong on 16-6-23.
@@ -9,7 +9,7 @@ import com.zyx.sheduler.entity.PageViews;
  * @version V1.0
  *          Copyright (c)2016 tyj-版权所有
  * @title PageViewsDao
- * @package com.zyx.sheduler.dao
+ * @package com.zyx.scheduler.dao
  * @update 16-6-23 下午4:18
  */
 public interface PageViewsDao {

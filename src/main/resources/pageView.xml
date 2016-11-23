@@ -5,7 +5,7 @@
 
     <bean id="accessTokenBean" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject">
-            <bean class="com.zyx.sheduler.quartz.PageViewsScheduler"/>
+            <bean class="com.zyx.scheduler.quartz.PageViewsScheduler"/>
         </property>
         <property name="targetMethod" value="start"/>
 

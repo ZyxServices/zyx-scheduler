@@ -1,4 +1,4 @@
-package com.zyx.sheduler.entity;
+package com.zyx.scheduler.entity;
 
 /**
  * Created by SubDong on 16-6-23.
@@ -7,7 +7,7 @@ package com.zyx.sheduler.entity;
  * @version V1.0
  *          Copyright (c)2016 tyj-版权所有
  * @title PageViews
- * @package com.zyx.sheduler.entity
+ * @package com.zyx.scheduler.entity
  * @update 16-6-23 下午4:15
  */
 public class PageViews {

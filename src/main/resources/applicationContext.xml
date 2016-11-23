@@ -19,7 +19,7 @@
                                   location="classpath:mysql.properties,classpath:redis.properties"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.zyx.sheduler.*"/>
+    <context:component-scan base-package="com.zyx.scheduler.*"/>
 
     <!--<import resource="applicationContext-mvc.xml"/>-->
 
@@ -33,7 +33,7 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://211.157.152.200:3306/zyx?characterEncoding=UTF-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true&amp;useUnicode=true"/>
+        <property name="url" value="jdbc:mysql://119.61.66.55:3306/zyx?characterEncoding=UTF-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true&amp;useUnicode=true"/>
         <property name="username" value="tiyujia"/>
         <property name="password" value="tiyujia_2016"/>
         <property name="initialSize" value="60"/>
@@ -54,7 +54,7 @@
           p:mapperLocations="classpath:mapping/*.xml"/>
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="com.zyx.sheduler.dao"
+          p:basePackage="com.zyx.scheduler.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
@@ -65,5 +65,5 @@
     <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
 
     <bean id="pageViewsDao" class="org.mybatis.spring.mapper.MapperFactoryBean"
-          p:mapperInterface="com.zyx.sheduler.dao.PageViewsDao"/>
+          p:mapperInterface="com.zyx.scheduler.dao.PageViewsDao"/>
 </beans>

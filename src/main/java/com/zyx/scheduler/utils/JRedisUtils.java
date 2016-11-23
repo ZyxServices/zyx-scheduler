@@ -1,4 +1,4 @@
-package com.zyx.sheduler.utils;
+package com.zyx.scheduler.utils;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * @version V1.0
  *          Copyright (c)2016 tyj-版权所有
  * @title JRedisUtils
- * @package com.zyx.sheduler.utils
+ * @package com.zyx.scheduler.utils
  * @update 16-6-20 下午5:50
  */
 public class JRedisUtils {
