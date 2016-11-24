@@ -31,6 +31,7 @@ public class UploadController {
     private static final ExecutorService UPLOAD_POOL = Executors.newFixedThreadPool(50);
     private static final ExecutorService DELETE_POOL = Executors.newFixedThreadPool(10);
 
+    @CrossOrigin
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public ModelAndView upload(@RequestPart(name = "avatar") MultipartFile avatar) throws ExecutionException, InterruptedException {
         AbstractView jsonView = new MappingJackson2JsonView();
@@ -65,6 +66,7 @@ public class UploadController {
         return new ModelAndView(jsonView);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/uploads", method = RequestMethod.POST)
     public ModelAndView uploads(@RequestPart(name = "avatars") MultipartFile[] avatars) throws ExecutionException, InterruptedException {
 
@@ -111,6 +113,7 @@ public class UploadController {
         return new ModelAndView(jsonView);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/upload", method = RequestMethod.DELETE)
     public ModelAndView deleteImage(@RequestParam(name = "fileUri") String fileUri) throws ExecutionException, InterruptedException {
 
@@ -134,6 +137,7 @@ public class UploadController {
         return new ModelAndView(jsonView);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/uploads", method = RequestMethod.DELETE)
     public ModelAndView deleteImage(@RequestParam(name = "fileUri") String[] fileUri) throws ExecutionException, InterruptedException {
 
